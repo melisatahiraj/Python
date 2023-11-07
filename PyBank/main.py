@@ -58,15 +58,6 @@ with open(budget_csv) as csvfile:
     greatest_decrease_value = change_pol.index(greatest_decrease)
     greatest_decrease_date = date[greatest_decrease_value + 1]
 
-# Print Analysis Statements
-print("Financial Analysis")
-print("----------------------------")
-print(f"Total Months: {total_months}")
-print(f"Total: ${net_total}")
-print(f"Average Change: ${average_change:.2f}")
-print(f"Greatest Increase in Profits: {greatest_increase_date} (${str(greatest_increase)})")
-print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${str(greatest_decrease)})")
-
 
 # Set variable for output file
 output_file = os.path.join("Analysis_PyBank.txt")
