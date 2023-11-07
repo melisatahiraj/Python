@@ -36,8 +36,9 @@ with open(election_csv) as csvfile:
         candidate.append(row[2])
 
         # Calulate total number of votes
-        total_votes += 1
+        total_votes = len(ballot_id)
 
+        # Set variable
         candidate_name = row[2]
 
         # Get the candidate name for each row
@@ -47,18 +48,24 @@ with open(election_csv) as csvfile:
             candidates_list.append(candidate_name)
             candidates_votes[candidate_name] = 1
 
+
     # Read through each candidates row of the data
     for candidate_name, votes in candidates_votes.items():
-
+        
+        # Get total number of votes
         votes_total.append(votes)
 
-        # Calculate total percentage of votes
+        # Calculate total percentage of votes and add to list of data
         votes_percent = round((votes / total_votes * 100), 3)
         total_percent.append(votes_percent)
 
         # Get the winners information
         if votes > winner_votes:
+            
+            # Track winner candidate votes
             winner_votes = votes
+
+            # Track winner candidate
             winner_candidate = candidate_name
 
     # Create zipped list to organize variables
@@ -66,7 +73,7 @@ with open(election_csv) as csvfile:
 
 
 # Set variable for output file
-output_file = os.path.join("Analysis_PyPoll.txt")
+output_file = os.path.join(".", "Analysis", "Analysis_PyPoll.txt")
 
 # Export to the output file
 with open(output_file, "w", newline='') as txtfile:
