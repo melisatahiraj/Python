@@ -1,4 +1,4 @@
-# python-challenge-3
+# Python
 
 ## Requirements
 
